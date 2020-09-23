@@ -19,6 +19,10 @@ class TweetList(LoginRequiredMixin, ListView):
   model = Tweet
   template_name="blog/list.html"
 
+  #object_listの表示順変更
+  def get_queryset(self):
+    return Tweet.objects.order_by('-created_at')
+
 class TweetEdit(LoginRequiredMixin, UpdateView):
   model = Tweet
   fields = ('message',)

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}投稿一覧{% endblock %}
+
+{% block content %}
+  <h1>投稿一覧</h1>
+  <button><a href="{% url 'new' %}">新規投稿</a></button>
+  <br><br>
+  {% for tweet in object_list %}
+    <div class="tweet" style="border: 1px solid black; margin-bottom: 5px; width: 500px">
+      {{ tweet.user.username }} {{ tweet.created_at }}<br>
+      {{ tweet.message }}<br>
+      <a href="{% url 'edit' tweet.id %}">編集</a>
+      <a href="{% url 'delete' tweet.id %}">削除</a>
+    </div>
+  {% endfor %}
+{% endblock %}

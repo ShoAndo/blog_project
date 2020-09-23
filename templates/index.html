@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}トップ{% endblock %}
+
+{% block content %}
+  <h1>トップ</h1>
+
+  {% if user.is_autehnticated %}
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+  {% else %}
+  <p><a href="{% url 'login' %}">ログイン</a></p>
+  <p><a href="{% url 'password_reset' %}">パスワード再設定</a></p>
+  <p><a href="{% url 'signup' %}">サインアップ</a></p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}ホーム{% endblock %}
+
+{% block content %}
+  <h1>ホーム</h1>
+  <p>こんにちは{{ user.username }}</p>
+
+  <p><a href="{% url 'password_change' %}">パスワード変更</a></p>
+  <p><a href="{% url 'logout' %}">ログアウト</a></p>
+  <!-- p><a href="{% url 'list' %}">投稿一覧</a></p -->
+
+{% endblock %}
